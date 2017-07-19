@@ -40,8 +40,9 @@ func populate_properties(id):
 	var path = "%s/%s" % [level_generator_path, algorithm.get_item_text(id)]
 	level_generator = load(path).new()
 
-	for property in level_generator.get_property_list():
-		print(property)
+	# research how to get properties i set in scripts so i can remove
+	# the set/get meta hack.
+	# print(level_generator.get_property_list())
 
 	for property in level_generator.get_meta_list():
 		var label = Label.new()
