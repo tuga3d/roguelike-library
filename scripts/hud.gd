@@ -68,9 +68,11 @@ func _on_generate_pressed():
 		level_generator.set_meta(x, properties_dictionary[x])
 	var width = get_node("container/map_width").text
 	var height = get_node("container/map_height").text
+	level_generator.width = int(width)
+	level_generator.height = int(height)
 
 	var timing = OS.get_ticks_msec()
-	var level = level_generator.generate_level(width, height)
+	var level = level_generator.generate_level()
 	print('Generation took: ', OS.get_ticks_msec() - timing, ' msec')
 
 	get_node(tilemap_path).draw_level(width, height, level)

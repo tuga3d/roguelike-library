@@ -12,8 +12,11 @@ func _init():
 	set_meta('i_neighbors', 4)
 
 
-func generate_level(width, height):
-	seed(hash(get_meta('s_seed')))
+func generate_level():
+	if get_meta('s_seed') == '-1':
+		randomize()
+	else:
+		seed(hash(get_meta('s_seed')))
 	initialize_level()
 	random_fill_level()
 	create_caves()
